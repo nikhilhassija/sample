@@ -21,7 +21,24 @@
 	<div class="container">
 		<div class="col-sm-6" style="border-right: 1px solid black;">
 			<h1 align="center">Add</h1>
-			<div class="btn btn-primary" id="add">Add</div>
+			<div class="col-sm-8 col-sm-offset-2">
+				<form>
+					{% csrf_token %}		
+					<div class="input-group">
+						<span class="input-group-addon" id="ba_an">Name</span>
+						<input type="text" class="form-control" placeholder="Name" aria-describedby="ba_an" id="a_name">
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon" id="ba_aa">Age</span>
+						<input type="number" class="form-control" placeholder="Age" aria-describedby="ba_aa" id="a_age">
+					</div>
+					<br>
+					<div class="form-group" align="right">
+						<div class="btn btn-primary" id="add">Add</div>
+					</div>
+				</form>
+			</div>
 		</div>
 		
 		<div class="col-sm-6" style="border-left: 1px solid black;">
@@ -40,6 +57,7 @@
 					</div>
 					<br>
 					<div class="form-group" align="right">
+						<!-- <div class="btn btn-primary" id="all">View All</div> -->
 						<div class="btn btn-primary" id="search">Search</div>
 					</div>
 				</form>
@@ -50,7 +68,20 @@
 			<hr class="soften" />
 		</div>
 		<div class="col-sm-6 col-sm-offset-3" id="tdiv">
-			
+			<table class="table table-bordered table-hover">
+				<thead class="thead-inverse">
+					<th>Name</th>
+					<th>Age</th>
+				</thead>
+				<tbody>
+					{% for p in P %}
+						<tr></tr>
+							<td>{{ p.name }}</td>
+							<td>{{ p.age }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 	</div>
 </body>
