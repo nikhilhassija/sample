@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}">
+	<script src="{% static 'myapp/js/jquery.min.js' %}"></script>
+	<script src="{% static 'myapp/js/script.js' %}"></script>
+	<script src="{% static 'myapp/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Sample</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="col-sm-6" style="border-right: 1px solid black;">
+			<h1 align="center">Add</h1>
+			<div class="btn btn-primary" id="add">Add</div>
+		</div>
+		
+		<div class="col-sm-6" style="border-left: 1px solid black;">
+			<h1 align="center">Search</h1>
+			<div class="col-sm-8 col-sm-offset-2">
+				<form>
+					{% csrf_token %}		
+					<div class="input-group">
+						<span class="input-group-addon" id="ba_sn">Name</span>
+						<input type="text" class="form-control" placeholder="Name" aria-describedby="ba_sn" id="s_name">
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon" id="ba_sa">Age</span>
+						<input type="number" class="form-control" placeholder="Age" aria-describedby="ba_sa" id="s_age">
+					</div>
+					<br>
+					<div class="form-group" align="right">
+						<div class="btn btn-primary" id="search">Search</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-sm-12">
+			<hr class="soften" />
+		</div>
+		<div class="col-sm-6 col-sm-offset-3" id="tdiv">
+			
+		</div>
+	</div>
+</body>
+</html>
